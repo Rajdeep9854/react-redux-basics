@@ -5,12 +5,12 @@ import { counterActions } from '../store';
 
 const Counter = () => {
   const dispatch = useDispatch();
-  const counter = useSelector(state => state.counter)
-  const toggle = useSelector(state => state.toggle)
+  const counter = useSelector(state => state.counter.counter)
+  const toggle = useSelector(state => state.counter.toggle)
 
 
   const toggleCounterHandler = () => {
-    //dispatch({ type: 'TOGGLE' })
+    dispatch(counterActions.toggleHandle())
   };
   const hanldeIncremet = () => {
     dispatch(counterActions.increment())
@@ -19,8 +19,9 @@ const Counter = () => {
     dispatch(counterActions.decrement())
   }
   const hanldeIncrese = () => {
-    //dispatch({ type: 'INCRESE', amount: 5 })
+    dispatch(counterActions.increase(5))
   }
+  
 
   return (
     <main className={classes.counter}>
